@@ -1,7 +1,12 @@
 <script>
 	import '../app.postcss';
 	import { ModeWatcher } from 'mode-watcher';
+	import { ParaglideJS } from '@inlang/paraglide-sveltekit';
+	import { i18n } from '$lib/i18n';
 </script>
 
 <ModeWatcher />
-<slot></slot>
+
+<ParaglideJS {i18n}>
+	<slot />
+</ParaglideJS>

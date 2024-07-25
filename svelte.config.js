@@ -6,7 +6,8 @@ const config = {
 	preprocess: vitePreprocess(),
 	kit: {
 		alias: {
-			$components: './src/lib/components'
+			$components: './src/lib/components',
+			$paraglide: './src/paraglide'
 		},
 		adapter: adapter()
 	}

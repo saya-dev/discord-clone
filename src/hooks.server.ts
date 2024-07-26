@@ -5,7 +5,7 @@ import { languageTag } from '$paraglide/runtime';
 export const handle = sequence(i18n.handle(), async ({ event, resolve }) => {
 	languageTag();
 
-	// to use later to guard routes
+	// TODO: test if language is detected correctly.
 	const route = event.route.id;
 	const pathname = i18n.route(event.url.pathname);
 

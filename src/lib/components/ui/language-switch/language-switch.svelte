@@ -11,10 +11,10 @@
 </script>
 
 <DropdownMenu.Root>
-	<DropdownMenu.Trigger>
+	<DropdownMenu.Trigger asChild let:builder={dropdownBuilder}>
 		<Tooltip.Root group openDelay={0} closeDelay={0}>
-			<Tooltip.Trigger>
-				<Button variant="outline" size="icon">
+			<Tooltip.Trigger asChild let:builder={tooltipBuilder}>
+				<Button builders={[dropdownBuilder, tooltipBuilder]} variant="outline" size="icon">
 					<Languages class="size-5" />
 				</Button>
 			</Tooltip.Trigger>

@@ -8,8 +8,8 @@
 </script>
 
 <Tooltip.Root group openDelay={0} closeDelay={0}>
-	<Tooltip.Trigger>
-		<Button on:click={toggleMode} variant="outline" size="icon">
+	<Tooltip.Trigger asChild let:builder>
+		<Button builders={[builder]} on:click={toggleMode} variant="outline" size="icon">
 			<SunMoon
 				class="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0"
 			/>

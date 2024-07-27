@@ -7,7 +7,7 @@
 	import { SunMoon, MoonStar } from 'lucide-svelte';
 </script>
 
-<Tooltip.Root openDelay={100} closeDelay={100}>
+<Tooltip.Root group openDelay={0} closeDelay={0}>
 	<Tooltip.Trigger>
 		<Button on:click={toggleMode} variant="outline" size="icon">
 			<SunMoon

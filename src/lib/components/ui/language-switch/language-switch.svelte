@@ -12,7 +12,7 @@
 
 <DropdownMenu.Root>
 	<DropdownMenu.Trigger>
-		<Tooltip.Root openDelay={100} closeDelay={100}>
+		<Tooltip.Root group openDelay={0} closeDelay={0}>
 			<Tooltip.Trigger>
 				<Button variant="outline" size="icon">
 					<Languages class="size-5" />
@@ -21,15 +21,17 @@
 			<Tooltip.Content>{m.common_language_switch_tooltip()}</Tooltip.Content>
 		</Tooltip.Root>
 	</DropdownMenu.Trigger>
-	<DropdownMenu.Content class="w-48">
+	<DropdownMenu.Content>
 		<DropdownMenu.Group>
 			<DropdownMenu.Label>{m.common_language_switch_title()}</DropdownMenu.Label>
 			<DropdownMenu.Separator />
-
 			{#each availableLanguageTags as lang}
 				<a href={i18n.route($page.url.pathname)} hreflang={lang}>
 					<DropdownMenu.CheckboxItem checked={languageTag() == lang}>
-						{languages[lang]}
+						<div class="flex w-full items-center justify-between gap-8">
+							<div>{languages[lang]}</div>
+							<div class="text-sm text-muted-foreground">{lang}</div>
+						</div>
 					</DropdownMenu.CheckboxItem>
 				</a>
 			{/each}

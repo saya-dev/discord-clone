@@ -28,10 +28,8 @@
 			{#each availableLanguageTags as lang}
 				<a href={i18n.route($page.url.pathname)} hreflang={lang}>
 					<DropdownMenu.CheckboxItem checked={languageTag() == lang}>
-						<div class="flex w-full items-center justify-between gap-8">
-							<div>{languages[lang]}</div>
-							<div class="text-sm text-muted-foreground">{lang}</div>
-						</div>
+						{languages[lang]}
+						<DropdownMenu.Shortcut>{lang}</DropdownMenu.Shortcut>
 					</DropdownMenu.CheckboxItem>
 				</a>
 			{/each}

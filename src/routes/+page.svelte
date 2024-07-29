@@ -29,7 +29,7 @@
 		<div class="flex gap-2">
 			<LanguageSwitch />
 			<LightSwitch />
-			<Button href="/login"><LogIn class="mr-2 size-4" />Login</Button>
+			<Button href="/login"><LogIn class="mr-2 size-4" /> {m.common_login()}</Button>
 		</div>
 	</div>
 </header>

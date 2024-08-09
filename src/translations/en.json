@@ -6,8 +6,61 @@
 	"common_language_switch_tooltip": "Change Language",
 	"common_login": "Login",
 	"common_register": "Register",
+	"common_verify": "Verify",
+	"common_legal_disclaimer": "By continuing, you agree to our Terms of Service and Privacy Policy.",
 
 	"landing_hero_title": "Imagine a place...",
 	"landing_hero_description": "A place where you can belong to a school club, a gaming group, or a worldwide art community. Where just you and a handful of friends can spend time together. A place that makes it easy to talk every day and hang out more often.",
-	"landing_hero_get_started": "Get Started"
+	"landing_hero_get_started": "Get Started",
+
+	"login_title": "Welcome back",
+	"login_description": "Login to your account",
+	"login_dont_have_an_account": "Don't have an account?",
+
+	"register_title": "Get Started",
+	"register_description": "Create an account",
+	"register_have_an_account": "Have an account?",
+
+	"verify_title": "Almost there, {name}!",
+	"verify_description_1": "Verify your account",
+	"verify_description_2": "We've sent a verification link to {email}.",
+	"verify_description_3": "Please verify your account by clicking on it.",
+	"verify_resend_email": "Resend Verification Email",
+	"verify_email_sent": "Verification email has been sent successfully.",
+	"verify_error_token_expired": "Verification link has expired. Please send another email.",
+
+	"email_greeting": "Hello {name},",
+	"email_ignore": "If you didn't request for this action, you can safely ignore this email.",
+	"email_regards": "Regards, Disclone",
+
+	"email_verify_subject": "Verify your account",
+	"email_verify_description": "You can verify your account by clicking on the link below.",
+
+	"field_nickname": "Nickname",
+	"field_nickname_description": "Your nickname will be displayed to other users.",
+	"field_nickname_placeholder": "Enter nickname...",
+	"field_nickname_error_min": "Nickname must be atleast 3 characters.",
+	"field_nickname_error_max": "Nickname must be at most 32 characters.",
+
+	"field_username": "Username",
+	"field_username_description": "Your username will be used for friendship requests.",
+	"field_username_placeholder": "Enter username...",
+	"field_username_error_taken": "Username is in use by another user.",
+	"field_username_error_min": "Username must be atleast 3 characters.",
+	"field_username_error_max": "Username must be at most 32 characters.",
+
+	"field_email": "Email",
+	"field_email_description": "You will use your email to login & recover your account.",
+	"field_email_error_not_found": "User not found.",
+	"field_email_error_taken": "Email is in use by another user.",
+	"field_email_error_invalid": "Please use a valid email address.",
+	"field_email_error_min": "Email must be atleast 8 characters.",
+	"field_email_error_max": "Email must be at most 64 characters.",
+
+	"field_password": "Password",
+	"field_password_error_incorrect": "Incorrect password.",
+	"field_password_error_min": "Password must be atleast 8 characters.",
+	"field_password_error_max": "Password must be at most 32 characters.",
+	"field_confirm_password": "Confirm Password",
+	"field_confirm_password_error_match": "Passwords must match."
 }

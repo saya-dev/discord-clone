@@ -5,6 +5,7 @@
 	import * as m from '$paraglide/messages';
 
 	import { ModeWatcher } from 'mode-watcher';
+	import { Toaster } from '$components/ui/sonner';
 	import { ParaglideJS } from '@inlang/paraglide-sveltekit';
 </script>
 
@@ -14,6 +15,7 @@
 </svelte:head>
 
 <ModeWatcher />
+<Toaster />
 
 <ParaglideJS {i18n}>
 	<slot />

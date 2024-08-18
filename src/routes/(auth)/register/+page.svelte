@@ -87,7 +87,7 @@
 	>
 </form>
 
-<p class="mt-4 text-center text-sm text-muted-foreground">
+<p class="mt-4 text-sm text-muted-foreground">
 	{m.register_have_an_account()}
 	<a href="/login" class="font-medium text-primary underline underline-offset-4">
 		{m.login()}

@@ -50,7 +50,7 @@
 	</Form.Button>
 </form>
 
-<p class="mt-4 text-center text-sm text-muted-foreground">
+<p class="mt-4 text-sm text-muted-foreground">
 	{m.login_dont_have_an_account()}
 	<a href="/register" class="font-medium text-primary underline underline-offset-4">
 		{m.register()}

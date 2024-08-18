@@ -21,21 +21,6 @@
 	"register_description": "Create an account",
 	"register_have_an_account": "Have an account?",
 
-	"verify_title": "Almost there, {name}!",
-	"verify_description_1": "Verify your account",
-	"verify_description_2": "We've sent a verification link to {email}.",
-	"verify_description_3": "Please verify your account by clicking on it.",
-	"verify_resend_email": "Resend Verification Email",
-	"verify_email_sent": "Verification email has been sent successfully.",
-	"verify_error_token_expired": "Verification link has expired. Please send another email.",
-
-	"email_greeting": "Hello {name},",
-	"email_ignore": "If you didn't request for this action, you can safely ignore this email.",
-	"email_regards": "Regards, Disclone",
-
-	"email_verify_subject": "Verify your account",
-	"email_verify_description": "You can verify your account by clicking on the link below.",
-
 	"field_nickname": "Nickname",
 	"field_nickname_description": "Your nickname will be displayed to other users.",
 	"field_nickname_placeholder": "Enter nickname...",

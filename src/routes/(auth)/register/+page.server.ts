@@ -1,23 +1,16 @@
 import * as m from '$paraglide/messages';
-import { ORIGIN, JWT_SECRET, RESEND_DOMAIN } from '$env/static/private';
 import { fail } from '@sveltejs/kit';
-import { i18n, redirect } from '$lib/i18n';
+import { redirect } from '$lib/i18n';
 import { Register } from '$lib/schemas';
-import { db, resend } from '$lib/server';
+import { db, lucia } from '$lib/server';
 import { setError, message, superValidate } from 'sveltekit-superforms';
 import { valibot } from 'sveltekit-superforms/adapters';
 import { RetryAfterRateLimiter } from 'sveltekit-rate-limiter/server';
-import { createSigner } from 'fast-jwt';
-import { render } from 'svelte-email';
-import verify from '$components/emails/verify.svelte';
 import bcrypt from 'bcryptjs';
 
 const limiter = new RetryAfterRateLimiter({
 	IP: [2, 'd']
 });
-
-const generateSessionToken = createSigner({ key: JWT_SECRET, expiresIn: '7d' });
-const generateVerificationToken = createSigner({ key: JWT_SECRET, expiresIn: '1h' });
 
 export const load = async () => {
 	return {
@@ -28,11 +21,7 @@ export const load = async () => {
 export const actions = {
 	default: async (event) => {
 		const form = await superValidate(event, valibot(Register));
-		if (!form.valid) {
-			return fail(400, {
-				form
-			});
-		}
+		if (!form.valid) return fail(400, { form });
 
 		const usernameTaken = await db.user.findUnique({ where: { username: form.data.username } });
 		if (usernameTaken) return setError(form, 'username', m.field_username_error_taken());
@@ -52,21 +41,14 @@ export const actions = {
 			}
 		});
 
-		event.cookies.set('token', generateSessionToken({ id: user.id }), { path: '/' });
+		const session = await lucia.createSession(user.id, {});
+		const sessionCookie = lucia.createSessionCookie(session.id);
 
-		await resend.emails.send({
-			from: `Disclone <noreply@${RESEND_DOMAIN}>`,
-			to: [user.email],
-			subject: m.email_verify_subject(),
-			html: render({
-				template: verify,
-				props: {
-					nickname: user.nickname,
-					link: `${ORIGIN}${i18n.resolveRoute('/verify')}/${generateVerificationToken({ id: user.id })}`
-				}
-			})
+		event.cookies.set(sessionCookie.name, sessionCookie.value, {
+			path: '.',
+			...sessionCookie.attributes
 		});
 
-		redirect(302, '/verify');
+		redirect(302, '/app');
 	}
 };

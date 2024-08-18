@@ -1,20 +1,16 @@
 import * as m from '$paraglide/messages';
-import { JWT_SECRET } from '$env/static/private';
 import { fail } from '@sveltejs/kit';
 import { redirect } from '$lib/i18n';
 import { Login } from '$lib/schemas';
-import { db } from '$lib/server';
+import { db, lucia } from '$lib/server';
 import { setError, message, superValidate } from 'sveltekit-superforms';
 import { valibot } from 'sveltekit-superforms/adapters';
 import { RetryAfterRateLimiter } from 'sveltekit-rate-limiter/server';
-import { createSigner } from 'fast-jwt';
 import bcrypt from 'bcryptjs';
 
 const limiter = new RetryAfterRateLimiter({
 	IP: [3, 'm']
 });
-
-const generateSessionToken = createSigner({ key: JWT_SECRET, expiresIn: '7d' });
 
 export const load = async () => {
 	return {
@@ -34,18 +30,20 @@ export const actions = {
 		const { limited, retryAfter } = await limiter.check(event);
 		if (limited) return message(form, { status: 'limited', retryAfter }, { status: 429 });
 
-		const user = await db.user.findUnique({ where: { username: form.data.email } });
+		const user = await db.user.findUnique({ where: { email: form.data.email } });
 		if (!user) return setError(form, 'email', m.field_email_error_not_found());
 
 		const isPasswordValid = await bcrypt.compare(form.data.password, user.password);
 		if (!isPasswordValid) return setError(form, 'password', m.field_password_error_incorrect());
 
-		event.cookies.set('token', generateSessionToken({ id: user.id }), {
-			path: '/'
+		const session = await lucia.createSession(user.id, {});
+		const sessionCookie = lucia.createSessionCookie(session.id);
+
+		event.cookies.set(sessionCookie.name, sessionCookie.value, {
+			path: '.',
+			...sessionCookie.attributes
 		});
 
-		if (!user.verified) redirect(302, '/verify');
-
-		redirect(302, '/dashboard');
+		redirect(302, '/app');
 	}
 };

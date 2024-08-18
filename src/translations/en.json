@@ -30,6 +30,7 @@
 	"field_username_description": "Your username will be used for friendship requests.",
 	"field_username_placeholder": "Enter username...",
 	"field_username_error_taken": "Username is in use by another user.",
+	"field_username_error_invalid": "Please only use lowercase letters, numbers, underscores or periods.",
 	"field_username_error_min": "Username must be atleast 3 characters.",
 	"field_username_error_max": "Username must be at most 32 characters.",
 

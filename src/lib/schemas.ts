@@ -26,7 +26,8 @@ export const Register = v.pipe(
 		username: v.pipe(
 			v.string(),
 			v.minLength(3, m.field_username_error_min),
-			v.maxLength(32, m.field_username_error_max)
+			v.maxLength(32, m.field_username_error_max),
+			v.check((username) => /^[a-z0-9_.]+$/.test(username), m.field_username_error_invalid)
 		),
 		confirmPassword: Login.entries.password
 	}),

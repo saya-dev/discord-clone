@@ -11,7 +11,7 @@
 
 <svelte:head>
 	<meta name="description" content={m.landing_hero_description()} />
-	<meta name="author" content={'saya'} />
+	<meta name="author" content="saya" />
 </svelte:head>
 
 <ModeWatcher />

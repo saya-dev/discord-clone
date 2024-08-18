@@ -7,10 +7,6 @@
 	import { ExternalLink, LogIn, HandMetal } from 'lucide-svelte';
 </script>
 
-<svelte:head>
-	<title>Disclone</title>
-</svelte:head>
-
 <header
 	class="sticky top-0 z-50 w-full border-b bg-background/95 shadow-sm backdrop-blur supports-[backdrop-filter]:bg-background/60"
 >
@@ -37,21 +33,7 @@
 <div class="flex min-h-[calc(100vh-65px)] flex-col">
 	<div class="flex-grow">
 		<main class="container flex max-w-6xl flex-col items-center">
-			<div class="py-20 sm:py-28 md:py-32">
-				<h1
-					class="text-balance text-center text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl"
-				>
-					{m.landing_hero_heading()}
-				</h1>
-				<p class="mx-auto mt-6 max-w-3xl text-balance text-center text-base sm:text-lg">
-					{m.landing_hero_description()}
-				</p>
-				<div class="mt-8 flex items-center justify-center gap-4">
-					<Button href="/register" size="lg"
-						><HandMetal class="mr-2 size-5" /> {m.landing_hero_get_started()}</Button
-					>
-				</div>
-			</div>
+			<slot />
 		</main>
 	</div>
 	<footer class="mt-4 flex h-16 items-center justify-center border-t border-border text-sm">

@@ -44,7 +44,7 @@
 	"field_password": "Password",
 	"field_password_error_incorrect": "Incorrect password.",
 	"field_password_error_min": "Password must be atleast 8 characters.",
-	"field_password_error_max": "Password must be at most 32 characters.",
+	"field_password_error_max": "Password must be at most 64 characters.",
 	"field_confirm_password": "Confirm Password",
 	"field_confirm_password_error_match": "Passwords must match."
 }

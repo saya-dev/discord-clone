@@ -29,7 +29,7 @@
 		<div class="flex gap-2">
 			<LanguageSwitch />
 			<LightSwitch />
-			<Button href="/login"><LogIn class="mr-2 size-4" /> {m.common_login()}</Button>
+			<Button href="/login"><LogIn class="mr-2 size-4" /> {m.login()}</Button>
 		</div>
 	</div>
 </header>
@@ -41,7 +41,7 @@
 				<h1
 					class="text-balance text-center text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl"
 				>
-					{m.landing_hero_title()}
+					{m.landing_hero_heading()}
 				</h1>
 				<p class="mx-auto mt-6 max-w-3xl text-balance text-center text-base sm:text-lg">
 					{m.landing_hero_description()}

@@ -4,22 +4,21 @@
 	"common_light_switch_tooltip": "Toggle Theme",
 	"common_language_switch_title": "Languages",
 	"common_language_switch_tooltip": "Change Language",
-	"common_login": "Login",
-	"common_register": "Register",
-	"common_verify": "Verify",
 	"common_legal_disclaimer": "By continuing, you agree to our Terms of Service and Privacy Policy.",
 
-	"landing_hero_title": "Imagine a place...",
+	"landing_hero_heading": "Imagine a place...",
 	"landing_hero_description": "A place where you can belong to a school club, a gaming group, or a worldwide art community. Where just you and a handful of friends can spend time together. A place that makes it easy to talk every day and hang out more often.",
 	"landing_hero_get_started": "Get Started",
 
-	"login_title": "Welcome back",
+	"login": "Login",
+	"login_heading": "Welcome back",
 	"login_description": "Login to your account",
 	"login_dont_have_an_account": "Don't have an account?",
 
-	"register_title": "Get Started",
+	"register": "Register",
+	"register_heading": "Get Started",
 	"register_description": "Create an account",
-	"register_have_an_account": "Have an account?",
+	"register_have_an_account": "Already have an account?",
 
 	"field_nickname": "Nickname",
 	"field_nickname_description": "Your nickname will be displayed to other users.",

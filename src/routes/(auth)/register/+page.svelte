@@ -18,10 +18,10 @@
 </script>
 
 <svelte:head>
-	<title>{m.common_register()} - Disclone</title>
+	<title>{m.register()} - Disclone</title>
 </svelte:head>
 
-<h1 class="text-2xl font-semibold tracking-tight">{m.register_title()}</h1>
+<h1 class="text-2xl font-semibold tracking-tight">{m.register_heading()}</h1>
 <p class="text-sm text-muted-foreground">{m.register_description()}</p>
 
 <form class="mt-4" method="POST" use:enhance>
@@ -83,13 +83,13 @@
 	</Form.Field>
 
 	<Form.Button {form} class="mt-4 w-full" size="lg"
-		><LogIn class="mr-2 w-4" />{m.common_register()}</Form.Button
+		><LogIn class="mr-2 w-4" />{m.register()}</Form.Button
 	>
 </form>
 
 <p class="mt-4 text-center text-sm text-muted-foreground">
 	{m.register_have_an_account()}
 	<a href="/login" class="font-medium text-primary underline underline-offset-4">
-		{m.common_login()}
+		{m.login()}
 	</a>
 </p>

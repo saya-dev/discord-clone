@@ -33,7 +33,7 @@
 		<h1
 			class="mt-4 max-w-[800px] scroll-m-20 text-center text-4xl font-extrabold tracking-tight lg:text-5xl"
 		>
-			{m.landing_hero_title()}
+			{m.landing_hero_heading()}
 		</h1>
 	</div>
 </div>

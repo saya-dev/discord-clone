@@ -3,8 +3,6 @@ import { lucia } from '$lib/server';
 import { i18n, redirect } from '$lib/i18n';
 
 export const handle = sequence(i18n.handle(), async ({ event, resolve }) => {
-	if (event.route.id == '/') return await resolve(event);
-
 	const sessionId = event.cookies.get(lucia.sessionCookieName);
 	const { session, user } = sessionId
 		? await lucia.validateSession(sessionId)

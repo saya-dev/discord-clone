@@ -8,15 +8,10 @@ export const handle = sequence(i18n.handle(), async ({ event, resolve }) => {
 		? await lucia.validateSession(sessionId)
 		: { session: null, user: null };
 
-	if (session && session.fresh) {
-		const sessionCookie = lucia.createSessionCookie(session.id);
-		event.cookies.set(sessionCookie.name, sessionCookie.value, {
-			path: '.',
-			...sessionCookie.attributes
-		});
-	}
-	if (!session) {
-		const sessionCookie = lucia.createBlankSessionCookie();
+	if (!session || session.fresh) {
+		const sessionCookie = !session
+			? lucia.createBlankSessionCookie()
+			: lucia.createSessionCookie(session.id);
 		event.cookies.set(sessionCookie.name, sessionCookie.value, {
 			path: '.',
 			...sessionCookie.attributes

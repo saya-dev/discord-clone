@@ -29,4 +29,4 @@ export const handle = sequence(i18n.handle(), async ({ event, resolve }) => {
 	return await resolve(event);
 });
 
-setInterval(lucia.deleteExpiredSessions, 900000)
+setInterval(() => lucia.deleteExpiredSessions(), 900000);

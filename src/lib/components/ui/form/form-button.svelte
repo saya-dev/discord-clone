@@ -3,7 +3,8 @@
 
 	import * as Button from '$components/ui/button/index.js';
 	import { Countdown } from '$components/ui/countdown';
-	import { TimerReset } from 'lucide-svelte';
+
+	import TimerReset from 'lucide-svelte/icons/timer-reset';
 
 	export let form: SuperForm<T>;
 

@@ -2,7 +2,8 @@
 	import * as m from '$paraglide/messages';
 
 	import { Button } from '$components/ui/button';
-	import { HandMetal } from 'lucide-svelte';
+
+	import HandMetal from 'lucide-svelte/icons/hand-metal';
 </script>
 
 <svelte:head>
@@ -20,7 +21,7 @@
 	</p>
 	<div class="mt-8 flex items-center justify-center gap-4">
 		<Button href="/register" size="lg"
-			><HandMetal class="mr-2 size-5" /> {m.landing_hero_get_started()}</Button
+			><HandMetal class="mr-2 size-5" />{m.landing_hero_get_started()}</Button
 		>
 	</div>
 </div>

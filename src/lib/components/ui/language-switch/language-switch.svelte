@@ -7,7 +7,8 @@
 	import * as DropdownMenu from '$components/ui/dropdown-menu';
 	import * as Tooltip from '$components/ui/tooltip';
 	import { Button } from '$components/ui/button';
-	import { Languages } from 'lucide-svelte';
+
+	import Languages from 'lucide-svelte/icons/languages';
 </script>
 
 <DropdownMenu.Root>

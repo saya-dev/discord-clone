@@ -4,7 +4,10 @@
 	import { Button } from '$components/ui/button';
 	import { LanguageSwitch } from '$components/ui/language-switch';
 	import { LightSwitch } from '$components/ui/light-switch';
-	import { ExternalLink, LogIn, HandMetal } from 'lucide-svelte';
+
+	import ExternalLink from 'lucide-svelte/icons/external-link';
+	import LogIn from 'lucide-svelte/icons/log-in';
+	import HandMetal from 'lucide-svelte/icons/hand-metal';
 </script>
 
 <header

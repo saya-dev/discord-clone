@@ -6,7 +6,8 @@
 
 	import * as Form from '$components/ui/form';
 	import { Input } from '$components/ui/input';
-	import { LogIn } from 'lucide-svelte';
+
+	import LogIn from 'lucide-svelte/icons/log-in';
 
 	export let data;
 

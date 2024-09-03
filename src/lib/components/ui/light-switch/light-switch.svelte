@@ -4,7 +4,9 @@
 
 	import * as Tooltip from '$components/ui/tooltip';
 	import { Button } from '$components/ui/button';
-	import { SunMoon, MoonStar } from 'lucide-svelte';
+
+	import SunMoon from 'lucide-svelte/icons/sun-moon';
+	import MoonStar from 'lucide-svelte/icons/moon-star';
 </script>
 
 <Tooltip.Root group openDelay={0} closeDelay={0}>

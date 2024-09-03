@@ -3,7 +3,8 @@
 
 	import { LightSwitch } from '$components/ui/light-switch';
 	import { LanguageSwitch } from '$components/ui/language-switch';
-	import { HandMetal } from 'lucide-svelte';
+
+	import HandMetal from 'lucide-svelte/icons/hand-metal';
 </script>
 
 <div class="flex min-h-screen">

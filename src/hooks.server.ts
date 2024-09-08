@@ -18,8 +18,8 @@ export const handle = sequence(i18n.handle(), async ({ event, resolve }) => {
 		});
 	}
 
-	if (event.route.id?.startsWith('/(auth)') && session) redirect(302, '/app');
-	else if (event.route.id?.startsWith('/app')) {
+	if (event.route.id?.startsWith('/(auth)') && session) redirect(302, '/channels');
+	else if (event.route.id?.startsWith('/channels')) {
 		if (!session) redirect(302, '/login');
 
 		event.locals.session = session;

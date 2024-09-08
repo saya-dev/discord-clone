@@ -51,6 +51,6 @@ export const actions = {
 			...sessionCookie.attributes
 		});
 
-		redirect(302, '/app');
+		redirect(302, '/channels');
 	}
 };

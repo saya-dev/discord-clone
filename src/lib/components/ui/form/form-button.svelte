@@ -20,12 +20,12 @@
 
 <Button.Root
 	type="submit"
-	disabled={$message?.status == 'limited' || $delayed || disabled}
+	disabled={$message?.retryAfter || $delayed || disabled}
 	on:click
 	on:keydown
 	{...$$restProps}
 >
-	{#if $message?.status == 'limited'}
+	{#if $message?.retryAfter}
 		<TimerReset class="mr-2 w-4" />
 		<Countdown on:finish={() => ($message = undefined)} seconds={$message.retryAfter || 0} />
 	{:else}

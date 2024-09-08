@@ -30,7 +30,9 @@ export const actions = {
 		if (emailTaken) return setError(form, 'email', m.field_email_error_taken());
 
 		const { limited, retryAfter } = await limiter.check(event);
-		if (limited) return message(form, { status: 'limited', retryAfter }, { status: 429 });
+		if (limited) return message(form, { retryAfter }, { status: 429 });
+
+		console.log(limited, retryAfter);
 
 		const user = await db.user.create({
 			data: {

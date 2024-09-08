@@ -32,14 +32,14 @@ export const actions = {
 		if (!user) {
 			const { limited, retryAfter } = await limiter.check(event);
 			if (!limited) return setError(form, 'email', m.field_email_error_not_found());
-			else return message(form, { status: 'limited', retryAfter }, { status: 429 });
+			else return message(form, { retryAfter }, { status: 429 });
 		}
 
 		const isPasswordValid = await bcrypt.compare(form.data.password, user.password);
 		if (!isPasswordValid) {
 			const { limited, retryAfter } = await limiter.check(event);
 			if (!limited) return setError(form, 'password', m.field_password_error_incorrect());
-			else return message(form, { status: 'limited', retryAfter }, { status: 429 });
+			else return message(form, { retryAfter }, { status: 429 });
 		}
 
 		const session = await lucia.createSession(user.id, {});

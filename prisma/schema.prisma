@@ -15,7 +15,11 @@ model User {
   password  String
   createdAt DateTime @default(now())
 
-  sessions Session[]
+  sessions       Session[]
+  memberships    Server[]
+  ownerships     Server[]  @relation("ownerships")
+  moderatorships Server[]  @relation("moderatorships")
+  messages       Message[]
 }
 
 model Session {
@@ -24,4 +28,60 @@ model Session {
 
   user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId String
+}
+
+model Server {
+  id   String @id @unique @default(uuid())
+  name String
+
+  owner   User   @relation(name: "ownerships", fields: [ownerId], references: [id])
+  ownerId String
+
+  members    User[]
+  moderators User[]    @relation("moderatorships")
+  channels   Channel[]
+}
+
+enum ChannelType {
+  TEXT
+  ANNOUNCEMENT
+  FORUM
+}
+
+model Channel {
+  id   String      @id @unique @default(uuid())
+  name String
+  type ChannelType
+
+  serverId String
+  server   Server @relation(fields: [serverId], references: [id], onDelete: Cascade)
+
+  messages Message[]
+  threads  Thread[]
+}
+
+model Thread {
+  id    String @id @unique @default(uuid())
+  title String
+
+  channel   Channel @relation(fields: [channelId], references: [id], onDelete: Cascade)
+  channelId String
+
+  messages Message[]
+}
+
+model Message {
+  id        String   @id @unique @default(uuid())
+  content   String
+  edited    Boolean
+  createdAt DateTime @default(now())
+
+  user   User?   @relation(fields: [userId], references: [id])
+  userId String?
+
+  channel   Channel? @relation(fields: [channelId], references: [id], onDelete: Cascade)
+  channelId String?
+
+  thread   Thread? @relation(fields: [threadId], references: [id], onDelete: Cascade)
+  threadId String?
 }
